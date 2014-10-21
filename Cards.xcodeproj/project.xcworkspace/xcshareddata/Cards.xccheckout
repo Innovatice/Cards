@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2AEB374C-511E-4B6A-872D-0ACD25C02BF7</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D188DC1349F407C5C2A8461A0D40E176666E7DA0</key>
+		<string>https://github.com/ericstephen/TheIronYard_iOS_Projects.git</string>
+	</dict>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D188DC1349F407C5C2A8461A0D40E176666E7DA0</key>
+		<string>iOS-TrainingApps/</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ericstephen/TheIronYard_iOS_Projects.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D188DC1349F407C5C2A8461A0D40E176666E7DA0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D188DC1349F407C5C2A8461A0D40E176666E7DA0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS-TrainingApps</string>
+		</dict>
+	</array>
+</dict>
+</plist>
