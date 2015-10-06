@@ -43,7 +43,9 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
 //        loadAds()
         deck.chooseDeck()
         
-        startGameButton = UIButton(frame: CGRectMake((SCREEN_WIDTH - 200) / 2.0 + 300, (SCREEN_HEIGHT - 200) / 2.0 - 225, 200, 100))
+        var position = 50 as CGFloat
+        
+        startGameButton = UIButton(frame: CGRectMake(SCREEN_WIDTH - 300, position, 200, 100))
         startGameButton.layer.cornerRadius = 30
         startGameButton.setTitle("Start Game", forState: .Normal)
         startGameButton.titleLabel?.font = UIFont(name: "HelveticaNeue-light", size: 30)
@@ -52,7 +54,9 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
         startGameButton.addTarget(self, action: Selector("startGameClicked"), forControlEvents: .TouchUpInside)
         self.view.addSubview(startGameButton)
         
-        howToPlayButton = UIButton(frame: CGRectMake((SCREEN_WIDTH - 200) / 2.0 + 300, (SCREEN_HEIGHT - 200) / 2.0 - 100, 200, 100))
+        position += startGameButton.frame.height + 30
+        
+        howToPlayButton = UIButton(frame: CGRectMake(SCREEN_WIDTH - 300, position, 200, 100))
         howToPlayButton.layer.cornerRadius = 30
         howToPlayButton.setTitle("How To Play", forState: .Normal)
         howToPlayButton.titleLabel?.font = UIFont(name: "HelveticaNeue-light", size: 30)
@@ -60,6 +64,11 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
         howToPlayButton.backgroundColor = UIColor(red: 0.180, green: 0.063, blue: 0.00, alpha: 1.0)
         howToPlayButton.addTarget(self, action: Selector("howToClicked"), forControlEvents: .TouchUpInside)
         self.view.addSubview(howToPlayButton)
+        
+        let backgroundView = UIImageView(frame: CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
+        let backgroundViewImage = UIImage(named: "gameboardbackground")
+        backgroundView.image = backgroundViewImage
+        self.view.addSubview(backgroundView)
         
         
         NSNotificationCenter.defaultCenter().addObserverForName("GameboardPlayCard", object: nil, queue: NSOperationQueue.mainQueue()) { (notification) -> Void in
@@ -383,15 +392,17 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
         howToTextField.font = UIFont(name: "HelveticaNeue-light", size: 34)
         howToPlayWindow.addSubview(howToTextField)
         
-        let backButton = UIButton(frame: CGRectMake(30, 30, 60, 60))
+        let backButton = UIButton(frame: CGRectMake(30, 30, 120, 60))
         backButton.backgroundColor = UIColor(red: 0.600, green: 0.114, blue: 0.078, alpha: 1.0)
-        backButton.layer.cornerRadius = 30
+        backButton.layer.cornerRadius = 15
+        backButton.setTitle("back", forState: .Normal)
+        backButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 30)
+        backButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         backButton.addTarget(self, action: Selector("backButtonClicked"), forControlEvents: .TouchUpInside)
         backButton.layer.masksToBounds = true
         
         howToPlayWindow.addSubview(backButton)
 
-        
     }
     
     func backButtonClicked() {
@@ -405,8 +416,7 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
     func backToHomeScreen() {
         
         self.dismissViewControllerAnimated(true, completion: nil)
-        
-        
+
     }
     
     
@@ -432,13 +442,21 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
     }
     
     
+//    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+//        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+//            return UIInterfaceOrientationMask.AllButUpsideDown
+//        } else {
+//            return UIInterfaceOrientationMask.All
+//        }
+//    }
+    
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return UIInterfaceOrientationMask.Landscape
-        } else {
-            return UIInterfaceOrientationMask.All
-        }
+        
+        let orientation: UIInterfaceOrientationMask = [UIInterfaceOrientationMask.Landscape, UIInterfaceOrientationMask.LandscapeLeft]
+        return orientation
     }
+    
+    
     
     override func prefersStatusBarHidden() -> Bool {
         return true
