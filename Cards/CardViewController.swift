@@ -27,14 +27,14 @@ class CardViewController: UIViewController, MCBrowserViewControllerDelegate, UIS
         
         self.view.backgroundColor = UIColor(red: 0.090, green: 0.459, blue: 0.580, alpha: 1.0)
         
-        connectionLabel = UILabel(frame: CGRectMake(60, 260, 150, 50))
+        connectionLabel = UILabel(frame: CGRectMake(60, SCREEN_HEIGHT - 60, 150, 50))
         connectionLabel.backgroundColor = UIColor.clearColor()
         connectionLabel.text = "Connecting..."
         connectionLabel.textColor = UIColor.whiteColor()
         connectionLabel.font = UIFont(name: "HelveticaNeue", size: 24)
         self.view.addSubview(connectionLabel)
         
-        connectionDot = UIView(frame: CGRectMake(20, 270, 30, 30))
+        connectionDot = UIView(frame: CGRectMake(20, SCREEN_HEIGHT - 50, 30, 30))
         connectionDot.backgroundColor = UIColor.redColor()
         connectionDot.layer.cornerRadius = 15
         self.view.addSubview(connectionDot)
@@ -42,13 +42,14 @@ class CardViewController: UIViewController, MCBrowserViewControllerDelegate, UIS
         cardHolderScroll.frame = self.view.frame
         cardHolderScroll.pagingEnabled = true
         
-        cardCount = UILabel(frame: CGRectMake((SCREEN_WIDTH - 50) / 2.0 + 250, 10, 50, 50))
+        cardCount = UILabel(frame: CGRectMake(SCREEN_WIDTH - 70, 10, 50, 50))
         cardCount.backgroundColor = UIColor(red: 0.600, green: 0.145, blue: 0.114, alpha: 1.0)
         cardCount.layer.cornerRadius = 25
         cardCount.layer.masksToBounds = true
         cardCount.textAlignment = .Center
         cardCount.font = UIFont(name: "HelveticaNeue-light", size: 24)
         cardCount.textColor = UIColor.whiteColor()
+        cardCount.hidden = true
         
         
         NSNotificationCenter.defaultCenter().addObserverForName("CardHolderSetGameboard", object: nil, queue: NSOperationQueue.mainQueue()) { (notification) -> Void in
@@ -75,6 +76,7 @@ class CardViewController: UIViewController, MCBrowserViewControllerDelegate, UIS
             
             self.cardsInHand.append(card)
             
+            self.cardCount.hidden = false
             self.cardCount.text = String(self.cardsInHand.count)
             
             self.connectionDot.removeFromSuperview()
