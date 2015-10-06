@@ -13,12 +13,6 @@
 		DD407FB819D35E7F0030F4D3 /* CardHolder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD407FB719D35E7F0030F4D3 /* CardHolder.storyboard */; };
 		DD407FBA19D364CF0030F4D3 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD407FB919D364CF0030F4D3 /* CardViewController.swift */; };
 		DD407FBC19D36BF10030F4D3 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD407FBB19D36BF10030F4D3 /* Deck.swift */; };
-		DD80233119EF439600A63EB6 /* Full Size.png in Resources */ = {isa = PBXBuildFile; fileRef = DD80232B19EF439600A63EB6 /* Full Size.png */; };
-		DD80233219EF439600A63EB6 /* large 2x and medium 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD80232C19EF439600A63EB6 /* large 2x and medium 3x.png */; };
-		DD80233319EF439600A63EB6 /* large 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD80232D19EF439600A63EB6 /* large 3x.png */; };
-		DD80233419EF439600A63EB6 /* medium 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD80232E19EF439600A63EB6 /* medium 2x.png */; };
-		DD80233519EF439600A63EB6 /* small 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD80232F19EF439600A63EB6 /* small 2x.png */; };
-		DD80233619EF439600A63EB6 /* small 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD80233019EF439600A63EB6 /* small 3x.png */; };
 		DDCB31F019EE23E300BA1EA1 /* 10Club.png in Resources */ = {isa = PBXBuildFile; fileRef = DDCB31BC19EE23E300BA1EA1 /* 10Club.png */; };
 		DDCB31F119EE23E300BA1EA1 /* 10Diamond.png in Resources */ = {isa = PBXBuildFile; fileRef = DDCB31BD19EE23E300BA1EA1 /* 10Diamond.png */; };
 		DDCB31F219EE23E300BA1EA1 /* 10Heart.png in Resources */ = {isa = PBXBuildFile; fileRef = DDCB31BE19EE23E300BA1EA1 /* 10Heart.png */; };
@@ -101,12 +95,6 @@
 		DD407FB719D35E7F0030F4D3 /* CardHolder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CardHolder.storyboard; sourceTree = "<group>"; };
 		DD407FB919D364CF0030F4D3 /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		DD407FBB19D36BF10030F4D3 /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
-		DD80232B19EF439600A63EB6 /* Full Size.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Full Size.png"; sourceTree = "<group>"; };
-		DD80232C19EF439600A63EB6 /* large 2x and medium 3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "large 2x and medium 3x.png"; sourceTree = "<group>"; };
-		DD80232D19EF439600A63EB6 /* large 3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "large 3x.png"; sourceTree = "<group>"; };
-		DD80232E19EF439600A63EB6 /* medium 2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "medium 2x.png"; sourceTree = "<group>"; };
-		DD80232F19EF439600A63EB6 /* small 2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "small 2x.png"; sourceTree = "<group>"; };
-		DD80233019EF439600A63EB6 /* small 3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "small 3x.png"; sourceTree = "<group>"; };
 		DD80233719EF569700A63EB6 /* Testing.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Testing.playground; sourceTree = "<group>"; };
 		DDCB31BC19EE23E300BA1EA1 /* 10Club.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10Club.png; sourceTree = "<group>"; };
 		DDCB31BD19EE23E300BA1EA1 /* 10Diamond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10Diamond.png; sourceTree = "<group>"; };
@@ -210,12 +198,6 @@
 			isa = PBXGroup;
 			children = (
 				DD24E18319F0579E00F08724 /* cardDown.png */,
-				DD80232B19EF439600A63EB6 /* Full Size.png */,
-				DD80232C19EF439600A63EB6 /* large 2x and medium 3x.png */,
-				DD80232D19EF439600A63EB6 /* large 3x.png */,
-				DD80232E19EF439600A63EB6 /* medium 2x.png */,
-				DD80232F19EF439600A63EB6 /* small 2x.png */,
-				DD80233019EF439600A63EB6 /* small 3x.png */,
 			);
 			path = "CoW Icons";
 			sourceTree = "<group>";
@@ -440,7 +422,6 @@
 				DD407FB819D35E7F0030F4D3 /* CardHolder.storyboard in Resources */,
 				DDCB320A19EE23E300BA1EA1 /* 7Heart.png in Resources */,
 				DDCB322219EE23E300BA1EA1 /* QueenHeart.png in Resources */,
-				DD80233319EF439600A63EB6 /* large 3x.png in Resources */,
 				DDCB321819EE23E300BA1EA1 /* JackClub.png in Resources */,
 				DDCB320419EE23E300BA1EA1 /* 6Club.png in Resources */,
 				DDCB31F919EE23E300BA1EA1 /* 3Diamond.png in Resources */,
@@ -449,7 +430,6 @@
 				DDCB320219EE23E300BA1EA1 /* 5Heart.png in Resources */,
 				DDCB322019EE23E300BA1EA1 /* QueenClub.png in Resources */,
 				DD24E18419F0579E00F08724 /* cardDown.png in Resources */,
-				DD80233419EF439600A63EB6 /* medium 2x.png in Resources */,
 				DDCB320819EE23E300BA1EA1 /* 7Club.png in Resources */,
 				DDCB31FA19EE23E300BA1EA1 /* 3Heart.png in Resources */,
 				DDCB320919EE23E300BA1EA1 /* 7Diamond.png in Resources */,
@@ -461,10 +441,8 @@
 				DDCB31F019EE23E300BA1EA1 /* 10Club.png in Resources */,
 				DDCB31F219EE23E300BA1EA1 /* 10Heart.png in Resources */,
 				DDCB320E19EE23E300BA1EA1 /* 8Heart.png in Resources */,
-				DD80233519EF439600A63EB6 /* small 2x.png in Resources */,
 				DDCB321119EE23E300BA1EA1 /* 9Diamond.png in Resources */,
 				DDD7190119D213C0007ED4A6 /* Images.xcassets in Resources */,
-				DD80233119EF439600A63EB6 /* Full Size.png in Resources */,
 				DDCB321019EE23E300BA1EA1 /* 9Club.png in Resources */,
 				DDCB31FF19EE23E300BA1EA1 /* 4Spade.png in Resources */,
 				DDCB322319EE23E300BA1EA1 /* QueenSpade.png in Resources */,
@@ -473,7 +451,6 @@
 				DDCB320119EE23E300BA1EA1 /* 5Diamond.png in Resources */,
 				DDCB31F619EE23E300BA1EA1 /* 2Heart.png in Resources */,
 				DDCB320D19EE23E300BA1EA1 /* 8Diamond.png in Resources */,
-				DD80233619EF439600A63EB6 /* small 3x.png in Resources */,
 				DDCB31F819EE23E300BA1EA1 /* 3Club.png in Resources */,
 				DD02B86F19EE32F900899389 /* gameboardbackground.png in Resources */,
 				DDCB321519EE23E300BA1EA1 /* AceDiamond.png in Resources */,
@@ -490,7 +467,6 @@
 				DDCB321619EE23E300BA1EA1 /* AceHeart.png in Resources */,
 				DDD718FF19D213C0007ED4A6 /* GameBoard.storyboard in Resources */,
 				DDCB321319EE23E300BA1EA1 /* 9Spade.png in Resources */,
-				DD80233219EF439600A63EB6 /* large 2x and medium 3x.png in Resources */,
 				DDCB321D19EE23E300BA1EA1 /* KingDiamond.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
