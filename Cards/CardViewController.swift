@@ -21,23 +21,27 @@ class CardViewController: UIViewController, MCBrowserViewControllerDelegate, UIS
     var connectionDot: UIView!
     var numCardsToSend: Int = 0
     var cardCount: UILabel!
+    var cardholderBG = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(red: 0.090, green: 0.459, blue: 0.580, alpha: 1.0)
+        cardholderBG = UIImageView(frame: CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
+        cardholderBG.backgroundColor = UIColor(red: 0.090, green: 0.459, blue: 0.580, alpha: 1.0)
+        cardholderBG.contentMode = .ScaleAspectFill
+        self.view.addSubview(cardholderBG)
         
         connectionLabel = UILabel(frame: CGRectMake(60, SCREEN_HEIGHT - 60, 150, 50))
         connectionLabel.backgroundColor = UIColor.clearColor()
         connectionLabel.text = "Connecting..."
         connectionLabel.textColor = UIColor.whiteColor()
         connectionLabel.font = UIFont(name: "HelveticaNeue", size: 24)
-        self.view.addSubview(connectionLabel)
+        cardholderBG.addSubview(connectionLabel)
         
         connectionDot = UIView(frame: CGRectMake(20, SCREEN_HEIGHT - 50, 30, 30))
         connectionDot.backgroundColor = UIColor.redColor()
         connectionDot.layer.cornerRadius = 15
-        self.view.addSubview(connectionDot)
+        cardholderBG.addSubview(connectionDot)
         
         cardHolderScroll.frame = self.view.frame
         cardHolderScroll.pagingEnabled = true
@@ -50,7 +54,7 @@ class CardViewController: UIViewController, MCBrowserViewControllerDelegate, UIS
         cardCount.font = UIFont(name: "HelveticaNeue-light", size: 24)
         cardCount.textColor = UIColor.whiteColor()
         cardCount.hidden = true
-        
+
         
         NSNotificationCenter.defaultCenter().addObserverForName("CardHolderSetGameboard", object: nil, queue: NSOperationQueue.mainQueue()) { (notification) -> Void in
             
@@ -59,7 +63,7 @@ class CardViewController: UIViewController, MCBrowserViewControllerDelegate, UIS
             GameDeviceInfo.gameDI().gameBoardID = gbID
             self.connectionLabel.text = "Connected"
             self.connectionDot.backgroundColor = UIColor.greenColor()
-            self.view.backgroundColor = UIColor(patternImage: (UIImage(named: "cardholderbackground"))!)
+            self.cardholderBG.image = UIImage(named: "cardholderbackground")
 
         }
         
