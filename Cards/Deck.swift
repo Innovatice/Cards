@@ -19,7 +19,7 @@ class Deck: NSObject {
         
         for cardType in cardTypes  {
             
-            var card = Card()
+            let card = Card()
             
             card.name = cardType["name"]!
             card.type = cardType["type"]!
@@ -94,7 +94,7 @@ class Deck: NSObject {
     
     func shuffleDeck() {
         
-        sort(&deckOfCards) {(_, _) in arc4random() % 2 == 0}
+        deckOfCards.sortInPlace {(_, _) in arc4random() % 2 == 0}
         
 //        println(deckOfCards)
 

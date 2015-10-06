@@ -20,9 +20,9 @@ class Card: NSObject {
     }
         
     required init(coder aDecoder: NSCoder) {
-        name = aDecoder.decodeObjectForKey("name") as String
-        type = aDecoder.decodeObjectForKey("type") as String
-        value = aDecoder.decodeObjectForKey("value") as String
+        name = aDecoder.decodeObjectForKey("name") as! String
+        type = aDecoder.decodeObjectForKey("type") as! String
+        value = aDecoder.decodeObjectForKey("value") as! String
 
         
     }
@@ -37,12 +37,12 @@ class Card: NSObject {
     
     func image() -> UIImage {
         
-        return UIImage(named: name + type)
+        return UIImage(named: name + type)!
     }
     
     func cardView() -> UIImageView {
         
-        var view = UIImageView(image: self.image())
+        let view = UIImageView(image: self.image())
         view.frame = CGRectMake(10, 10, 195, 284)
         view.userInteractionEnabled = true
         
@@ -52,7 +52,7 @@ class Card: NSObject {
     
     func backView() -> UIImageView {
         
-        var view = UIImageView(image: UIImage(named: "cardDown"))
+        let view = UIImageView(image: UIImage(named: "cardDown"))
         view.frame = CGRectMake(10, 10, 200, 300)
         view.userInteractionEnabled = true
 

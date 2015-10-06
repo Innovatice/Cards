@@ -53,25 +53,25 @@ class CardViewController: UIViewController, MCBrowserViewControllerDelegate, UIS
         
         NSNotificationCenter.defaultCenter().addObserverForName("CardHolderSetGameboard", object: nil, queue: NSOperationQueue.mainQueue()) { (notification) -> Void in
             
-            var gbID = notification.userInfo!["GameboardPeerID"] as MCPeerID
+            let gbID = notification.userInfo!["GameboardPeerID"] as! MCPeerID
             
             GameDeviceInfo.gameDI().gameBoardID = gbID
             self.connectionLabel.text = "Connected"
             self.connectionDot.backgroundColor = UIColor.greenColor()
-            self.view.backgroundColor = UIColor(patternImage: (UIImage(named: "cardholderbackground")))
+            self.view.backgroundColor = UIColor(patternImage: (UIImage(named: "cardholderbackground"))!)
 
         }
         
         NSNotificationCenter.defaultCenter().addObserverForName("CardHolderCardsToPlay", object: nil, queue: NSOperationQueue.mainQueue()) { (notification) -> Void in
             
-            let num = notification.userInfo!["num"] as NSString
+            let num = notification.userInfo!["num"] as! NSString
             self.numCardsToSend = Int(num.intValue)
             
         }
         
         NSNotificationCenter.defaultCenter().addObserverForName("CardHolderDealCard", object: nil, queue: NSOperationQueue.mainQueue()) { (notification) -> Void in
             
-            var card = notification.userInfo!["card"] as Card
+            let card = notification.userInfo!["card"] as! Card
             
             self.cardsInHand.append(card)
             
@@ -82,18 +82,18 @@ class CardViewController: UIViewController, MCBrowserViewControllerDelegate, UIS
             
             if self.cardsInHand.count == 52 {
                 
-                println("You Win")
+                print("You Win")
                 
-                var winnerAlert = UIView(frame: CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
+                let winnerAlert = UIView(frame: CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
                 winnerAlert.backgroundColor = UIColor.whiteColor()
                 winnerAlert.alpha = 0.88
                 self.view.addSubview(winnerAlert)
             }
             
-            println(card.name)
-            println(notification.userInfo!["peerID"] as MCPeerID)
+            print(card.name)
+            print(notification.userInfo!["peerID"] as! MCPeerID)
             
-            var cardView = card.backView()
+            let cardView = card.backView()
             
             self.addSwipeToFirstCard()
             
@@ -120,7 +120,7 @@ class CardViewController: UIViewController, MCBrowserViewControllerDelegate, UIS
             self.cardHolderScroll.frame.size.width = 320
             self.cardHolderScroll.clipsToBounds = false
             
-            println(self.cardsInHand.count)
+            print(self.cardsInHand.count)
             
         }
         
@@ -139,7 +139,7 @@ class CardViewController: UIViewController, MCBrowserViewControllerDelegate, UIS
         
         if cardViewArray.count == 0 { return }
         
-        var swipeCardUp = UISwipeGestureRecognizer(target: self, action: Selector("swipeCardToTable:"))
+        let swipeCardUp = UISwipeGestureRecognizer(target: self, action: Selector("swipeCardToTable:"))
         swipeCardUp.direction = UISwipeGestureRecognizerDirection.Up
         
         cardViewArray[0].addGestureRecognizer(swipeCardUp)
@@ -154,9 +154,9 @@ class CardViewController: UIViewController, MCBrowserViewControllerDelegate, UIS
             activePlayer = false
             numCardsToSend--
             
-            println(GameDeviceInfo.gameDI().gameBoardID)
+            print(GameDeviceInfo.gameDI().gameBoardID)
             
-            var card = self.cardsInHand[0]
+            let card = self.cardsInHand[0]
             self.cardsInHand.removeAtIndex(0)
             
             self.cardCount.text = String(self.cardsInHand.count)
@@ -193,7 +193,7 @@ class CardViewController: UIViewController, MCBrowserViewControllerDelegate, UIS
     }
     
     func browserViewControllerDidFinish(
-        browserViewController: MCBrowserViewController!)  {
+        browserViewController: MCBrowserViewController)  {
             // Called when the browser view controller is dismissed (ie the Done
             // button was tapped)
             
@@ -202,7 +202,7 @@ class CardViewController: UIViewController, MCBrowserViewControllerDelegate, UIS
     
     
     func browserViewControllerWasCancelled(
-        browserViewController: MCBrowserViewController!)  {
+        browserViewController: MCBrowserViewController)  {
             // Called when the browser view controller is cancelled
             
             self.dismissViewControllerAnimated(true, completion: nil)
@@ -214,11 +214,11 @@ class CardViewController: UIViewController, MCBrowserViewControllerDelegate, UIS
     }
     
     
-    override func supportedInterfaceOrientations() -> Int {
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return Int(UIInterfaceOrientationMask.AllButUpsideDown.toRaw())
+            return UIInterfaceOrientationMask.AllButUpsideDown
         } else {
-            return Int(UIInterfaceOrientationMask.All.toRaw())
+            return UIInterfaceOrientationMask.All
         }
     }
     

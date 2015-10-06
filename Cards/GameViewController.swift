@@ -64,12 +64,12 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
         
         NSNotificationCenter.defaultCenter().addObserverForName("GameboardPlayCard", object: nil, queue: NSOperationQueue.mainQueue()) { (notification) -> Void in
 
-            var card = notification.userInfo!["card"] as Card
+            let card = notification.userInfo!["card"] as! Card
 
             self.playedCards.append(card)
             
-            var peerID = notification.userInfo!["peerID"] as MCPeerID
-            var cardView = card.cardView()
+            let peerID = notification.userInfo!["peerID"] as! MCPeerID
+            let cardView = card.cardView()
             
             for p in 0..<GameDeviceInfo.gameDI().playerIDs.count {
                 
@@ -92,7 +92,7 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
                         
                     default :
                         
-                        println("ummmmm")
+                        print("ummmmm")
                         
                     }
                     
@@ -104,7 +104,7 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
                         
                         cardView.frame.origin.y = 0
                         
-                        var random = CGFloat(Int(arc4random_uniform(20)) - 10) / 100
+                        let random = CGFloat(Int(arc4random_uniform(20)) - 10) / 100
                         
                         cardView.transform = CGAffineTransformMakeRotation(random)
 
@@ -124,8 +124,8 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
             
             // test value for winner
             
-            let p1Card = self.player1PlayedCard?.value.toInt()
-            let p2Card = self.player2PlayedCard?.value.toInt()
+            let p1Card = Int((self.player1PlayedCard?.value)!)
+            let p2Card = Int((self.player2PlayedCard?.value)!)
             
             if (p1Card == p2Card) {
                 
@@ -192,7 +192,7 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
                 })
                 
                 // send cards to winner
-                println("The winner is \(winner)")
+                print("The winner is \(winner)")
                 
                 cardsOnTable = 2
                 
@@ -222,11 +222,11 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
         
         for c in 0..<52 {
             
-            var dealCardView = UIImageView(frame: dealButton.frame)
+            let dealCardView = UIImageView(frame: dealButton.frame)
             
             dealCardView.image = UIImage(named: "cardDown")
                         
-            var random = CGFloat(Int(arc4random_uniform(20)) - 10) / 100
+            let random = CGFloat(Int(arc4random_uniform(20)) - 10) / 100
             
             dealCardView.transform = CGAffineTransformMakeRotation(random)
             
@@ -234,7 +234,7 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
             
             self.dealCardViewArray.append(dealCardView)
             
-            println(self.dealCardViewArray.count)
+            print(self.dealCardViewArray.count)
             
             
         }
@@ -291,11 +291,11 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
     
     func dealButtonClicked() {
         
-        var deviceConnectionAlert = UIAlertController(title: "Two Devices Not Connected", message: "Please Check Connection Status on iPhone", preferredStyle: UIAlertControllerStyle.Alert)
+        let deviceConnectionAlert = UIAlertController(title: "Two Devices Not Connected", message: "Please Check Connection Status on iPhone", preferredStyle: UIAlertControllerStyle.Alert)
         
         if GameDeviceInfo.gameDI().playerIDs.count < 2 {
             
-            println("2 Devices not Connected")
+            print("2 Devices not Connected")
             
             deviceConnectionAlert.addAction(UIAlertAction(title: "Go Back", style: UIAlertActionStyle.Default, handler: nil))
         
@@ -316,7 +316,7 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
                         
                         // based on last card in deck array
                         
-                        var topCard = self.dealCardViewArray.last!
+                        let topCard = self.dealCardViewArray.last!
                         
                         self.dealCardViewArray.removeLast()
                                                 
@@ -383,7 +383,7 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
         howToTextField.font = UIFont(name: "HelveticaNeue-light", size: 34)
         howToPlayWindow.addSubview(howToTextField)
         
-        var backButton = UIButton(frame: CGRectMake(30, 30, 60, 60))
+        let backButton = UIButton(frame: CGRectMake(30, 30, 60, 60))
         backButton.backgroundColor = UIColor(red: 0.600, green: 0.114, blue: 0.078, alpha: 1.0)
         backButton.layer.cornerRadius = 30
         backButton.addTarget(self, action: Selector("backButtonClicked"), forControlEvents: .TouchUpInside)
@@ -396,7 +396,7 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
     
     func backButtonClicked() {
 
-        println("back button pressed")
+        print("back button pressed")
         
         howToPlayWindow.removeFromSuperview()
         
@@ -411,7 +411,7 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
     
     
     func browserViewControllerDidFinish(
-        browserViewController: MCBrowserViewController!)  {
+        browserViewController: MCBrowserViewController)  {
             // Called when the browser view controller is dismissed (ie the Done
             // button was tapped)
             
@@ -420,7 +420,7 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
     
     
     func browserViewControllerWasCancelled(
-        browserViewController: MCBrowserViewController!)  {
+        browserViewController: MCBrowserViewController)  {
             // Called when the browser view controller is cancelled
             
             self.dismissViewControllerAnimated(true, completion: nil)
@@ -432,11 +432,11 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate, ADB
     }
     
     
-    override func supportedInterfaceOrientations() -> Int {
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return Int(UIInterfaceOrientationMask.Landscape.toRaw())
+            return UIInterfaceOrientationMask.Landscape
         } else {
-            return Int(UIInterfaceOrientationMask.All.toRaw())
+            return UIInterfaceOrientationMask.All
         }
     }
     

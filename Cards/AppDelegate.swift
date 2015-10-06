@@ -21,11 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
             
-            var SB = UIStoryboard(name: "GameBoard", bundle: NSBundle.mainBundle())
+            let SB = UIStoryboard(name: "GameBoard", bundle: NSBundle.mainBundle())
             
             GameDeviceInfo.gameDI().deviceType = .Gameboard
 
-            var vc = SB.instantiateInitialViewController() as GameViewController
+            let vc = SB.instantiateInitialViewController() as! GameViewController
         
             window!.rootViewController = vc
             
@@ -34,11 +34,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
             
-            var SB = UIStoryboard(name: "CardHolder", bundle: NSBundle.mainBundle())
+            let SB = UIStoryboard(name: "CardHolder", bundle: NSBundle.mainBundle())
             
             GameDeviceInfo.gameDI().deviceType = .CardHolder
             
-            var vc = SB.instantiateInitialViewController() as CardViewController
+            let vc = SB.instantiateInitialViewController() as! CardViewController
             
             window!.rootViewController = vc
             
